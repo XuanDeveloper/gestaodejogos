@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { GamepadIcon } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Button from '@/components/ui/Button';
+import { translations } from '@/lib/translations';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -32,10 +33,10 @@ const Login = () => {
         <div className="text-center">
           <GamepadIcon className="mx-auto h-12 w-12 text-blue-600" />
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            Game Rental System
+            {translations.auth.title}
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Sign in to access your dashboard
+          {translations.auth.subtitle}
           </p>
         </div>
 
@@ -45,7 +46,7 @@ const Login = () => {
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
-              Email address
+              {translations.auth.email}
             </label>
             <input
               id="email"
@@ -62,7 +63,7 @@ const Login = () => {
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
-              Password
+              {translations.auth.password}
             </label>
             <input
               id="password"
@@ -79,7 +80,7 @@ const Login = () => {
             className="w-full"
             disabled={loading}
           >
-            {loading ? 'Signing in...' : 'Sign in'}
+            {loading ? translations.auth.signingIn : translations.auth.signIn}
           </Button>
         </form>
       </div>
